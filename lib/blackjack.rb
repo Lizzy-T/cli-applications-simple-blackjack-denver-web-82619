@@ -26,15 +26,25 @@ def end_game
 end
 
 def initial_round
-  # code #initial_round here
+  total = deal_card + deal_card
+  display_card_total
 end
 
-def hit?
-  # code hit? here
+def hit?(total)
+  prompt_user
+  decision = get_user_input
+  if decision != "s" && decision != "h"
+    invalid_command
+    prompt_user
+    decision = get_user_input
+  end
+  return total if decision == "s"
+  return total += deal_card if decision == "h"
 end
 
 def invalid_command
-  # code invalid_command here
+  p "Please enter a valid command"
+  "Please enter a valid command"
 end
 
 #####################################################
