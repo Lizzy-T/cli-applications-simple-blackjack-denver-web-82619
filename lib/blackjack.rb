@@ -7,7 +7,7 @@ def deal_card
   rand(1..11)
 end
 
-def display_card_total(total)
+def display_card_total(card_total)
   puts "Your cards add up to #{card_total}"
   "Your cards add up to #{card_total}"
 end
@@ -26,11 +26,11 @@ def end_game
 end
 
 def initial_round
-  total = deal_card + deal_card
+  card_total = deal_card + deal_card
   display_card_total
 end
 
-def hit?(total)
+def hit?(card_total)
   prompt_user
   decision = get_user_input
   if decision != "s" && decision != "h"
@@ -38,8 +38,8 @@ def hit?(total)
     prompt_user
     decision = get_user_input
   end
-  return total if decision == "s"
-  return total += deal_card if decision == "h"
+  return card_total if decision == "s"
+  return card_total += deal_card if decision == "h"
 end
 
 def invalid_command
