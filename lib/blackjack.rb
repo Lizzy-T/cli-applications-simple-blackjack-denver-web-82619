@@ -33,8 +33,8 @@ def initial_round
 end
 
 def hit?(card_total)
-  prompt_user
-  decision = get_user_input
+  p prompt_user
+  p decision = get_user_input
   if decision != "s" && decision != "h"
     invalid_command
     prompt_user
